@@ -1,0 +1,655 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.com.devcoffee</groupId>
+  <artifactId>mdfe-xml</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  <name>mdfe-xml</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!-- Dependência para JAXB -->
+    <dependency>
+      <groupId>javax.xml.bind</groupId>
+      <artifactId>jaxb-api</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>4.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-core</artifactId>
+      <version>2.3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
+      <version>2.3.1</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>3.1.0</version>
+        <configuration>
+          <!-- Configuração do arquivo de binding -->
+          <xjbSources>
+              <xjbSource>bindings.xml</xjbSource>
+          </xjbSources>
+          <args>
+            <arg>-XnodeCount</arg>
+            <arg>10000</arg> <!-- Increasing the limit -->
+        </args>
+        </configuration>
+        <executions>
+          <execution>
+            <id>consMDFeNaoEnc</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/consMDFeNaoEnc_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.consmdfenaoenc</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>consReciMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/consReciMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.consrecimdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>consSitMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/consSitMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.conssitmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>consStatServMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/consStatServMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.consstatservmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>distMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/distMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.distmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>enviMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/enviMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.envimdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>evAlteracaoPagtoServMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evAlteracaoPagtoServMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evalteracaopagtoservmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>evCancMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evCancMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evcancmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>evConfirmaServMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evConfirmaServMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evconfirmaservmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>evEncMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evEncMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evencmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>eventoMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/eventoMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.eventomdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>evIncCondutorMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evIncCondutorMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evinccondutormdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>evInclusaoDFeMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evInclusaoDFeMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evinclusaodfemdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>evPagtoOperMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/evPagtoOperMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.evpagtoopermdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>mdfe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>mdfeConsultaDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfeConsultaDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfeconsultadfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>  
+          <execution>
+            <id>mdfeModalAereo</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfeModalAereo_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfemodalaereo</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>  
+          <execution>
+            <id>mdfeModalAquaviario</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfeModalAquaviario_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfemodalaquaviario</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>mdfeModalFerroviario</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfeModalFerroviario_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfemodalferroviario</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>mdfeModalRodoviario</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/mdfeModalRodoviario_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.mdfemodalrodoviario</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>procEventoMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/procEventoMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.proceventomdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>procMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/procMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.procmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>retConsMDFeNaoEnc</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retConsMDFeNaoEnc_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retconsmdfenaoenc</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>  
+          <execution>
+            <id>retConsReciMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retConsReciMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retconsrecimdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>retConsSitMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retConsSitMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retconssitmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>  
+          <execution>
+            <id>retConsStatServMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retConsStatServMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retconsstatservmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>retDistMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retDistMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retdistmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>retEnviMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retEnviMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retEnvimdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution> 
+          <execution>
+            <id>retEventoMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retEventoMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.reteventomdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>retMDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retMDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retmdfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>
+          <execution>
+            <id>retMDFeConsultaDFe</id>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <!-- Diretório onde seus XSDs estão localizados -->
+              <sources>
+                <source>schemas/retMDFeConsultaDFe_v3.00.xsd</source>
+              </sources>
+              <verbose>false</verbose>
+              <extension>true</extension>
+              <removeOldOutput>false</removeOldOutput>
+              <!-- Pacote onde os beans serão gerados -->
+              <packageName>br.inf.portalfiscal.mdfe.v3.retmdfeconsultadfe</packageName>
+              <encoding>UTF-8</encoding>
+              <clearOutputDir>false</clearOutputDir>
+            </configuration>
+          </execution>                     
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
