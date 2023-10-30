@@ -1,17 +1,50 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.com.devcoffee</groupId>
   <artifactId>mdfe-xml</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0</version>
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Java beans para o projeto SPED MDFe</description>
+  <url>https://github.com/devcoffee/mdfexsd2beans.git</url>
+
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
   </properties>
-  <name>mdfe-xml</name>
-  <url>http://maven.apache.org</url>
+
+  <licenses>
+    <license>
+      <name>GNU General Public License v3.0</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.en.html</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>devCoffee</name>
+      <email>contato@devcoffee.com.br</email>
+      <organization>devCoffee Soluções em Tecnologia</organization>
+      <organizationUrl>https://devcoffee.com.br</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:git://github.com:devcoffee/mdfexsd2beans.git</connection>
+    <developerConnection>scm:git:ssh://github.com:devcoffee/mdfexsd2beans.git</developerConnection>
+    <url>https://github.com:devcoffee/mdfexsd2beans/tree/master</url>
+  </scm>
+
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/devcoffee/mdfexsd2beans</url>
+    </repository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -51,12 +84,12 @@
         <configuration>
           <!-- Configuração do arquivo de binding -->
           <xjbSources>
-              <xjbSource>bindings.xml</xjbSource>
+            <xjbSource>bindings.xml</xjbSource>
           </xjbSources>
           <args>
             <arg>-XnodeCount</arg>
             <arg>10000</arg> <!-- Increasing the limit -->
-        </args>
+          </args>
         </configuration>
         <executions>
           <execution>
@@ -248,7 +281,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>eventoMDFe</id>
             <goals>
@@ -286,7 +319,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>evInclusaoDFeMDFe</id>
             <goals>
@@ -305,7 +338,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>evPagtoOperMDFe</id>
             <goals>
@@ -324,7 +357,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>mdfe</id>
             <goals>
@@ -362,7 +395,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution>  
+          </execution>
           <execution>
             <id>mdfeModalAereo</id>
             <goals>
@@ -381,7 +414,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution>  
+          </execution>
           <execution>
             <id>mdfeModalAquaviario</id>
             <goals>
@@ -400,7 +433,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>mdfeModalFerroviario</id>
             <goals>
@@ -457,7 +490,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>procMDFe</id>
             <goals>
@@ -495,7 +528,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution>  
+          </execution>
           <execution>
             <id>retConsReciMDFe</id>
             <goals>
@@ -514,7 +547,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>retConsSitMDFe</id>
             <goals>
@@ -533,7 +566,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution>  
+          </execution>
           <execution>
             <id>retConsStatServMDFe</id>
             <goals>
@@ -552,7 +585,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>retDistMDFe</id>
             <goals>
@@ -571,7 +604,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>retEnviMDFe</id>
             <goals>
@@ -590,7 +623,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution> 
+          </execution>
           <execution>
             <id>retEventoMDFe</id>
             <goals>
@@ -647,7 +680,7 @@
               <encoding>UTF-8</encoding>
               <clearOutputDir>false</clearOutputDir>
             </configuration>
-          </execution>                     
+          </execution>
         </executions>
       </plugin>
     </plugins>
